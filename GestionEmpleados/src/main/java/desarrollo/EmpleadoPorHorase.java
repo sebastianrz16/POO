@@ -10,11 +10,8 @@ private double tarifaPorHora;
         this.horasTrabajadas = horasTrabajadas;
         this.tarifaPorHora = tarifaPorHora;
     }
- @Override
-     public  double calcularSalario(){
-     return 0;
-     
-     }
+
+  
 
     public int getHorasTrabajadas() {
         return horasTrabajadas;
@@ -41,5 +38,8 @@ private double tarifaPorHora;
     public void setTarifaPorHora(double tarifaPorHora) {
         this.tarifaPorHora = tarifaPorHora;
     }
-    
+  @Override
+    public double calcularSalario() {
+        return horasTrabajadas * tarifaPorHora;
+    }
 }

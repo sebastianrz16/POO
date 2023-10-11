@@ -7,13 +7,22 @@ import java.util.LinkedList;
 import java.util.List;
 import desarrollo.EmpleadoAsalariado;
 import desarrollo.EmpleadoPorHorase;
+import desarrollo.Empleado;
 
 
 
 public class Service {
+   
+  
+ {
+    this.empleadosPorHoras = new ArrayList<>(); // Inicializa la lista
+}
  public LinkedList<EmpleadoAsalariado> objasalariado;
    private List<EmpleadoAsalariado> empleadosAsalariados;
     private List<EmpleadoPorHorase> empleadosPorHoras;
+     
+
+    
 
      {this.objasalariado = new LinkedList<>();
 }
@@ -122,33 +131,56 @@ public class Service {
         }
     }
 
-  
-    public void modificarEmpleado(String nombreEmpleado, String nuevoNombre, double nuevoSalario) {
-      
-        for (EmpleadoAsalariado empleado : empleadosAsalariados) {
-            if (empleado.getNombre().equals(nombreEmpleado)) {
-              
-                empleado.setNombre(nuevoNombre);
-                empleado.setSalarioMensual(nuevoSalario);
-                System.out.println("Empleado modificado con éxito.");
-                return;
-            }
+  public void modificarNombre(String nombreEmpleado, String nuevoNombre) {
+    for (EmpleadoPorHorase empleado : empleadosPorHoras) {
+        if (empleado.getNombre().equals(nombreEmpleado)) {
+            empleado.setNombre(nuevoNombre); // Modificar el nombre
+            System.out.println("Nombre de " + nombreEmpleado + " modificado a " + nuevoNombre);
+            return;
         }
-
-     
-        for (EmpleadoPorHorase empleado : empleadosPorHoras) {
-            if (empleado.getNombre().equals(nombreEmpleado)) {
-             
-                empleado.setNombre(nuevoNombre);
-                empleado.setSalarioPorHora(nuevoSalario);
-                System.out.println("Empleado modificado con éxito.");
-                return;
-            }
-        }
-
-        
-        System.out.println("Empleado no encontrado.");
     }
+    System.out.println("Empleado " + nombreEmpleado + " no encontrado.");
+}
+ 
+public void modificarSalarioEmpleadoPorHoras(String nombreEmpleado, double nuevoSalario) {
+    for (EmpleadoPorHorase empleado : empleadosPorHoras) {
+        if (empleado.getNombre().equals(nombreEmpleado)) {
+            empleado.setSalarioBase(nuevoSalario); // Modificar el salario
+            System.out.println("Salario de " + nombreEmpleado + " modificado a " + nuevoSalario);
+            return;
+        }
+    }
+    System.out.println("Empleado " + nombreEmpleado + " no encontrado.");
+}
+
+   private List<Empleado> empleados; // Lista única de empleados
+    
+    public Service() {
+        this.empleados = new ArrayList<>();
+    }
+
+    // Resto de tus métodos
+
+    // Agregar un empleado a la lista unificada
+    public void agregarEmpleado(Empleado empleado) {
+        empleados.add(empleado);
+    }
+
+public Empleado buscarEmpleadoPorNombre(String nombre) {
+    for (Empleado empleado : empleadosAsalariados) {
+        if (empleado.getNombre().equalsIgnoreCase(nombre)) {
+            return empleado;
+        }
+    }
+
+    for (Empleado empleado : empleadosPorHoras) {
+        if (empleado.getNombre().equalsIgnoreCase(nombre)) {
+            return empleado;
+        }
+    }
+
+    return null; // Retorna null si el empleado no se encuentra en ninguna de las listas
+}
     
 }   
 

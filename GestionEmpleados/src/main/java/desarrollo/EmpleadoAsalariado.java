@@ -1,7 +1,7 @@
 
 package desarrollo;
 
-import java.util.LinkedList;
+
 public  class EmpleadoAsalariado extends Empleado  {
     private double deducciones;
    
