@@ -8,6 +8,8 @@ package cursos.parcialcorte2;
  *
  * @author ruizs
  */
+import lombok.Data;
+@Data
 public class Motocicleta extends Vehiculo{
       private int cilindrada;
 
@@ -18,15 +20,6 @@ public class Motocicleta extends Vehiculo{
     public Motocicleta(int cilindrada, String marca, String modelo, String placa, int horaDeEntrada) {
         super(marca, modelo, placa, horaDeEntrada);
         this.cilindrada = cilindrada;
-    }
-
-    public int getCilindrada() {
-        return cilindrada;
-    }
-
-    public void setCilindrada(int cilindrada) {
-        this.cilindrada = cilindrada;
-    }
-    
+    }  
     
 }

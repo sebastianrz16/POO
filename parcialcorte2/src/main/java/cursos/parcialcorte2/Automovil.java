@@ -8,6 +8,9 @@ package cursos.parcialcorte2;
  *
  * @author ruizs
  */
+import lombok.Data;
+@Data
+
 public class Automovil extends Vehiculo{
      private int numeroPuertas;
     // Constructores, getters y setters
@@ -17,14 +20,5 @@ public class Automovil extends Vehiculo{
     public Automovil(int numeroPuertas, String marca, String modelo, String placa, int horaEntrada) {
         super(marca, modelo, placa, horaEntrada);
         this.numeroPuertas = numeroPuertas;
-    }
-    
-    public int getNumeroPuertas() {
-        return numeroPuertas;
-    }
-
-    public void setNumeroPuertas(int numeroPuertas) {
-        this.numeroPuertas = numeroPuertas;
-    }
-    
+    }      
 }
